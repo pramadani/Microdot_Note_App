@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit and View Notes</title>
+    <title>Note App</title>
     <link rel="stylesheet" href="note/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <h1>Submit Note</h1>
-    <form id="note-form">
-        <label for="content">Note Content:</label><br>
-        <textarea id="content" name="content" rows="4" required></textarea><br><br>
-        <input type="submit" value="Submit">
-    </form>
-
-    <h2>Notes List</h2>
-    <div id="notes-list">Loading...</div>
+    <div id="app" :style="{ display: displayApp }" v-cloak>
+        <form @submit.prevent="addNote">
+            <input v-model="noteContent" placeholder="Enter note content" required>
+            <button type="submit">Add Note</button>
+        </form>
+        <div v-if="notes.length">
+            <div v-for="note in notes" :key="note.id" class="note">
+                <div class="note-id">No. {{ note.id }}</span></div>
+                <div class="note-content">{{ note.content }}</span></div>
+            </div>
+        </div>
+        <div v-else>No notes available.</div>
+    </div>
 
     <script src="note/script.js"></script>
 </body>
