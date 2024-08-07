@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit and View Notes</title>
+    <link rel="stylesheet" href="note/styles.css">
+</head>
+<body>
+    <h1>Submit Note</h1>
+    <form id="note-form">
+        <label for="content">Note Content:</label><br>
+        <textarea id="content" name="content" rows="4" required></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Notes List</h2>
+    <div id="notes-list">Loading...</div>
+
+    <script src="note/script.js"></script>
+</body>
+</html>
